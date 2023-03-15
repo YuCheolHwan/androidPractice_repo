@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SubActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FFC107">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100% 취업 축하"
+        android:textColor="#190707"
+        android:textSize="20sp"
+        android:typeface="normal"
+        ></TextView>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="200dp"
+        android:maxHeight="200dp"
+        android:src = "@drawable/success"></ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="안드로이드 웹앱 클라우드 3기"
+        android:textColor="#190707"
+        android:textSize="20sp"
+        android:typeface="normal"
+        ></TextView>
+</LinearLayout>
