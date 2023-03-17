@@ -7,46 +7,15 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintProperties.WRAP_CONTENT
 import androidx.core.content.ContextCompat
+import com.example.andoridfirst.databinding.ActivitySub20Binding
+import com.example.andoridfirst.databinding.Apptest1Binding
 
 class SubActivity : AppCompatActivity() {
+    lateinit var binding: ActivitySub20Binding
     var flag : Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 화면을 코드로 만들어서 보여주기
-        val tvMessage = TextView( this)
-        tvMessage.text = "경 100% 축"
-        tvMessage.setTextColor(Color.parseColor("#D2691E"))
-
-        val imgPicture = ImageView(this)
-        imgPicture.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.success))
-
-        val tvMessage2 = TextView(this)
-        tvMessage2.text = "안드로이드 웹앱 3기"
-        tvMessage2.setTextColor(Color.parseColor("#D2691E"))
-        tvMessage2.textSize = 30.0f
-
-        val btnClick = Button(this)
-        btnClick.text = "클릭해주세요"
-        btnClick.setOnClickListener {
-            Toast.makeText(applicationContext,"유철환님 반갑습니다", Toast.LENGTH_SHORT).show()
-            if(flag == true){
-                tvMessage2.text = "안웁 3기"
-                flag = false
-            }else{
-                tvMessage2.text = "철환 3기"
-                flag = true
-            }
-        }
-        val liLayout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            gravity = Gravity.CENTER
-            setBackgroundColor(Color.parseColor("#FFFF00"))
-            addView(tvMessage, WRAP_CONTENT, WRAP_CONTENT)
-            addView(imgPicture, WRAP_CONTENT, WRAP_CONTENT)
-            addView(tvMessage2, WRAP_CONTENT, WRAP_CONTENT)
-            addView(btnClick, WRAP_CONTENT, WRAP_CONTENT)
-        }
-
-        setContentView(liLayout)
+        binding = ActivitySub20Binding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
