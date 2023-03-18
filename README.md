@@ -1,1 +1,1 @@
-# androidPractice_repo
+# Kotlin Android program Practice Project
