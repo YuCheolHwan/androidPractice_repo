@@ -8,6 +8,9 @@ import android.app.ProgressDialog.show
 import android.app.TimePickerDialog
 import android.content.DialogInterface
 import android.content.DialogInterface.OnClickListener
+import android.content.pm.PackageManager
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +21,7 @@ import android.view.View
 import android.widget.*
 import android.widget.AbsListView.MultiChoiceModeListener
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import com.example.andoridfirst.databinding.ActivityMain7Binding
 import com.example.andoridfirst.databinding.RegisterLayoutBinding
 import com.example.andoridfirst.databinding.ToastLayoutBinding
@@ -37,6 +41,8 @@ class MainActivity7 : AppCompatActivity(), View.OnClickListener,
         binding.btnMultiItemDialog.setOnClickListener(this)
         binding.btnSingleItemDialog.setOnClickListener(this)
         binding.btnCustomDialog.setOnClickListener(this)
+        binding.btnFineLocate.setOnClickListener(this)
+        binding.btnRington.setOnClickListener(this)
 
 
     }
@@ -44,6 +50,25 @@ class MainActivity7 : AppCompatActivity(), View.OnClickListener,
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btnRington -> {
+                // Uniform Resource Identifier, 리소스를 구분하는 식별자.
+                // 사운드 소리 위치 파일을 가져온다.
+                val notificationUri : Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                val rington = RingtoneManager.getRingtone(applicationContext,notificationUri)
+                rington.play()
+            }
+            R.id.btnFineLocate -> {
+                val state = ContextCompat.checkSelfPermission(
+                    applicationContext,
+                    "android.permission.ACCESS_FINE_LOCATION"
+                )
+                if (state == PackageManager.PERMISSION_GRANTED) {
+                    binding.tvNameMessage.text = "위치추적권한허용"
+                } else {
+                    binding.tvNameMessage.text = "위치추적권한불허"
+
+                }
+            }
             R.id.btnCustomDialog -> {
                 val userBinding: RegisterLayoutBinding
                 val userDialogBuilder = AlertDialog.Builder(this)
